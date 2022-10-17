@@ -1,0 +1,24 @@
+item {
+    id: 1
+    name: 'Mango'
+}
+
+item {
+    id: 2
+    name: 'healthy'
+}
+
+item {
+    id: 3
+    name: 'unhealthy insufficient nutrients'
+}
+
+item {
+    id: 4
+    name: 'unhealthy sooty mold'
+}
+
+item {
+    id: 5
+    name: 'unhealthy_foliar gall midge'
+}

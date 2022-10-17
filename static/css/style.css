@@ -1,0 +1,116 @@
+
+body {
+    background-size: contain;
+    background-image: url('https://img.freepik.com/free-vector/stylish-hexagonal-line-pattern-background_1017-19742.jpg?w=2000');
+    margin-top: 120px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Logo
+
+.center {
+    margin: 120px 0 30px 120px;
+
+}
+.main {
+  display: grid;
+  place-items: center;
+  position: relative;
+  transform: rotate(-50deg);
+}
+.main * {
+  position: absolute;
+  background: black;
+}
+.hand {
+  width: 20px;
+  height: 60px;
+  border-radius: 100vw;
+}
+
+.neck {
+  width: 5px;
+  height: 20px;
+  bottom: 30px;
+}
+
+.glass {
+  aspect-ratio: 1;
+  width: 100px;
+  background: transparent;
+  border-radius: 50%;
+  border: 5px solid;
+  bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glass * {
+    background: transparent;
+}
+
+*/
+
+form {
+    margin: 10px;
+}
+
+input[type=file] {
+    background-color: rgb(103, 103, 103);
+}
+
+.icon {
+    margin: 25px;
+}
+i {
+    padding-right: 5px;
+}
+
+p {
+    color:rgb(103, 103, 103);
+}
+.img-box {
+    display: flex;
+    justify-content: center;
+    width: 350px;
+    height: 380px;
+    margin: 0 auto;
+    border-style: dashed;
+    border-radius: 25px;
+}
+
+.res-box {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    height: 70%;
+    margin: 5 auto;
+    border-style: dashed;
+    border-radius: 25px;
+}
+
+img {
+    margin: auto;
+    border-radius: inherit;
+    width: 90%;
+    height: 95%;
+}
+
+.body-res {
+    
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#submit-btn {
+    margin-top: 10px;
+}
+
+.res {
+    padding: 0 12px;
+    height: 100%;
+}
