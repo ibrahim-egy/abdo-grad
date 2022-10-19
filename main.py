@@ -70,11 +70,43 @@ def result():
         classes = [cls for cls in detections['detection_classes'][detections['detection_scores'] > .4]]
         classes = [category_index.get(cls)['name'] for cls in classes]
         data = {}
+        infections = {
+            'unhealthy sooty mold': {
+                "treat": "Spray With detergent Mixture",
+                "link": "http://extension.msstate.edu/publications/information-sheets/the-plant-doctor-sooty-mold#:~:text=Once%20sooty%20mold%20is%20established,spray%20it%20on%20the%20plants.",
+                'no_treatment': "auto"
+            },
+            'unhealthy_foliar gall midge': {
+                "treat": "Biochemical Spray",
+                "link": "https://plantix.net/en/library/plant-diseases/600301/mango-midge",
+                'no_treatment': "auto"
+            },
+            'unhealthy insufficient nutrients': {
+                "treat": "Adding More Nutrients",
+                "link": "https://vikaspedia.in/agriculture/crop-production/integrated-pest-managment/ipm-for-fruit-crops/ipm-strategies-for-mango/nutritional-deficiencies-of-mango",
+                'no_treatment': "auto"
+            },
+            'Mango': {
+                'treat': "#",
+                "link": "#",
+                'no_treatment': "none"
+            },
+            'healthy': {
+                'treat': "#",
+                "link": "#",
+                'no_treatment': "none"
+            }
+        }
         for i in range(len(classes)):
             name = f"{i+1}_{classes[i]}"
             score = detections['detection_scores'][i] * 100
             score = "{:.2f}".format(score)
-            data[name] = score
+            data[name] = {
+                "score": score,
+                "treat": infections[classes[i]]['treat'],
+                "more_info": infections[classes[i]]['link'],
+                'show': infections[classes[i]]['no_treatment']
+            }
 
         return render_template('result.html', img="static/outputs/result.png", data=data)
 

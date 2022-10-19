@@ -16,9 +16,25 @@
             <img src="{{ img }}" alt="Result Image">
         </div>
         <div>
-            {% for class in data %}
-                <h3>{{ class }}: {{ data[class] }}%</h3>
-            {% endfor %}
+            <table class="table">
+                <thead>
+                    <th>Class</th>
+                    <th>Score</th>
+                    <th>Treatment</th>
+                    <th>Learn More</th>
+                </thead>
+                <tbody>
+                    {% for class in data %}
+                        <tr>
+                            <td>{{ class }}</td>
+                            <td>{{ data[class].score }}%</td>
+                            <td style="text-align: center;">{{ data[class].treat }}</td>
+                            <td><a href='{{ data[class].more_info }}' style="pointer-events: {{data[class].show }}">More info &rarr;</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
         </div>
     </div>
 
