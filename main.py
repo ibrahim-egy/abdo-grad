@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for, request, redirect, flash
 import tensorflow as tf
 import numpy as np
 import warnings
@@ -23,6 +23,7 @@ def load_image_into_numpy_array(path):
 
 
 app = Flask(__name__)
+app.secret_key = "serakfbeerkbeer"
 
 infections = {
             'unhealthy sooty mold': {
@@ -67,7 +68,12 @@ def result():
         input_tensor = tf.convert_to_tensor(image_np)
         input_tensor = input_tensor[tf.newaxis, ...]
 
-        detections = detect_fn(input_tensor)
+        try:
+            detections = detect_fn(input_tensor)
+        except ValueError:
+            flash("Cant Work with This format")
+            flash("Make Sure The Image Is In .jpg format.")
+            return redirect(url_for('home'))
         num_detections = int(detections.pop('num_detections'))
         detections = {key: value[0, :num_detections].numpy() for key, value in detections.items()}
         detections['num_detections'] = num_detections
@@ -85,16 +91,16 @@ def result():
             category_index,
             use_normalized_coordinates=True,
             max_boxes_to_draw=200,
-            min_score_thresh=.4)
+            min_score_thresh=.6)
         plt.figure(figsize=IMAGE_SIZE, dpi=200)
         plt.axis("off")
         plt.imshow(image_np_with_detections)
         plt.savefig('static/outputs/result.png', bbox_inches='tight')
-        im = Image.open("static/outputs/result.png")
 
         # show image
-        im.show()
-        classes = [cls for cls in detections['detection_classes'][detections['detection_scores'] > .4]]
+        # im = Image.open("static/outputs/result.png")
+        # im.show()
+        classes = [cls for cls in detections['detection_classes'][detections['detection_scores'] > .6]]
         classes = [category_index.get(cls)['name'] for cls in classes]
         data = {}
 

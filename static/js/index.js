@@ -5,5 +5,5 @@ function showImage(event) {
 
     document.querySelector('.img-box').style.visibility = 'visible'
     document.getElementById('submit-btn').style.visibility = 'visible'
-
+    document.querySelector('.flashes').style.visibility = 'hidden'
 }

@@ -6,24 +6,29 @@
             <img src="{{ img }}" alt="Result Image">
         </div>
         <div>
-            <table class="table">
-                <thead>
-                    <th>Class</th>
-                    <th>Score</th>
-                    <th>Treatment</th>
-                    <th>Learn More</th>
-                </thead>
-                <tbody>
-                    {% for class in data %}
-                        <tr>
-                            <td>{{ class }}</td>
-                            <td>{{ data[class].score }}%</td>
-                            <td style="text-align: center;">{{ data[class].treat }}</td>
-                            <td><a href='{{ data[class].more_info }}' style="pointer-events: {{data[class].show }}">&rarr;</a></td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            {% if data == {} %}
+                <h1>Un Recognised!</h1>
+                <p>That not a leaf Photo please make sure you follow the instruction for better detection.</p>
+            {% else %}
+                <table class="table">
+                    <thead>
+                        <th>Class</th>
+                        <th>Score</th>
+                        <th>Treatment</th>
+                        <th>Learn More</th>
+                    </thead>
+                    <tbody>
+                        {% for class in data %}
+                            <tr>
+                                <td>{{ class[2:] }}</td>
+                                <td>{{ data[class].score }}%</td>
+                                <td style="text-align: center;">{{ data[class].treat }}</td>
+                                <td><a href='{{ data[class].more_info }}' style="pointer-events: {{data[class].show }}">Full Treatment Plan&rarr;</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
 
         </div>
     </div>

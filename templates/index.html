@@ -2,7 +2,7 @@
 
 <div class="top">
 
-    <h1>Infection Detector!</h1>
+    <h1>Infection Detector</h1>
     <p>Fast And Accurate Mango Leaf Infection Detection.</p>
     <i class="fa-solid fa-bug fa-6x" style="margin: 20px 0"></i>
 
@@ -11,7 +11,7 @@
             <label for="image-input" class="btn btn-outline-dark"><i class="fa-solid fa-camera"></i> Capture</label>
             <input id="image-input" type="file" name="img" capture onchange="showImage(event)" hidden>
             <div class="img-box" style="visibility:hidden;">
-                <img id="img" src="" alt="Capture Image">
+                <img id="img" src="{{ url }}" alt="Capture Image">
             </div>
             <button id="submit-btn" type="submit" class="btn btn-outline-dark" style="visibility:hidden">Go</button>
         </form>

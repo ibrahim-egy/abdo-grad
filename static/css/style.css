@@ -104,8 +104,9 @@ td:last-child {
 }
 
 
-body {
-  font-family: "Montserrat", sans-serif;
+.read {
+    height: 0px;
+    width: 0;
 }
 
 .read > * {
@@ -118,7 +119,7 @@ body {
   position: fixed;
   width: 60px;
   aspect-ratio: 1;
-  background-color: #eee;
+  background-color: #ffedbf;
   border-radius: 50%;
   top: 50px;
   right: 50px;
@@ -257,6 +258,13 @@ body {
   visibility: visible;
 }
 
+.flashes {
+
+    margin-top: 60px;
+    color: red;
+    font-weight: 700;
+    list-style: none;
+}
 
 @media (max-height: 880px) {
 
