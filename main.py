@@ -6,6 +6,7 @@ from PIL import Image
 import matplotlib.pyplot as plt
 from object_detection.utils import label_map_util
 from object_detection.utils import visualization_utils as viz_utils
+import datetime
 
 warnings.filterwarnings('ignore')
 IMAGE_SIZE = (12, 8)  # Output display size as you want
@@ -53,9 +54,13 @@ infections = {
             }
         }
 
+# get year for copyright
+today = datetime.date.today()
+year = today.strftime("%Y")
+
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html', year=year)
 
 
 @app.route('/result', methods=['GET', 'POST'])
@@ -71,7 +76,6 @@ def result():
         try:
             detections = detect_fn(input_tensor)
         except ValueError:
-            flash("Cant Work with This format")
             flash("Make Sure The Image Is In .jpg format.")
             return redirect(url_for('home'))
         num_detections = int(detections.pop('num_detections'))
@@ -95,7 +99,7 @@ def result():
         plt.figure(figsize=IMAGE_SIZE, dpi=200)
         plt.axis("off")
         plt.imshow(image_np_with_detections)
-        plt.savefig('static/outputs/result.png', bbox_inches='tight')
+        plt.savefig('static/outputs/result.png', bbox_inches='tight', pad_inches=0)
 
         # show image
         # im = Image.open("static/outputs/result.png")
@@ -115,7 +119,7 @@ def result():
                 'show': infections[classes[i]]['no_treatment']
             }
 
-        return render_template('result.html', img="static/outputs/result.png", data=data)
+        return render_template('result.html', img="static/outputs/result.png", data=data, year=year)
 
     return redirect(url_for('home'))
 
