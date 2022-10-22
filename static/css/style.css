@@ -335,6 +335,23 @@ footer {
 
 }
 
+@media (max-height: 780px) {
+
+    .img-box {
+        height: 300px;
+        margin-top: 5px;
+    }
+
+    .res {
+        margin-top: 10px;
+    }
+
+    .top {
+        margin-top: 20px;
+    }
+
+}
+
 @media (max-width: 1200px) {
 
     .read__input:checked ~ .read__background {

@@ -95,7 +95,7 @@ def result():
             category_index,
             use_normalized_coordinates=True,
             max_boxes_to_draw=200,
-            min_score_thresh=.6)
+            min_score_thresh=.55)
         plt.figure(figsize=IMAGE_SIZE, dpi=200)
         plt.axis("off")
         plt.imshow(image_np_with_detections)
@@ -104,7 +104,7 @@ def result():
         # show image
         # im = Image.open("static/outputs/result.png")
         # im.show()
-        classes = [cls for cls in detections['detection_classes'][detections['detection_scores'] > .6]]
+        classes = [cls for cls in detections['detection_classes'][detections['detection_scores'] > .55]]
         classes = [category_index.get(cls)['name'] for cls in classes]
         data = {}
 

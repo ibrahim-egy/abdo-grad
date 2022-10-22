@@ -23,7 +23,11 @@
                                 <td>{{ class[2:] }}</td>
                                 <td>{{ data[class].score }}%</td>
                                 <td style="text-align: center;">{{ data[class].treat }}</td>
-                                <td><a href='{{ data[class].more_info }}' style="pointer-events: {{data[class].show }}">Full Treatment Plan&rarr;</a></td>
+                                {% if class[2:] == "healthy" or class[2:] == "Mango" %}
+                                    <td>Great Work</td>
+                                {% else %}
+                                    <td><a href='{{ data[class].more_info }}' style="pointer-events: {{data[class].show }}">Full Treatment Plan&rarr;</a></td>
+                                {% endif %}
                             </tr>
                         {% endfor %}
                     </tbody>
