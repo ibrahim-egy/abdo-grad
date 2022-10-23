@@ -7,3 +7,23 @@ function showImage(event) {
     document.getElementById('submit-btn').style.visibility = 'visible'
     document.querySelector('.flashes').style.visibility = 'hidden'
 }
+
+
+
+let preloader = document.getElementById("preloader");
+preloader.classList.add('display')
+
+window.onload = function () {
+    preloader.classList.remove('display')
+}
+
+const allForms = document.querySelectorAll('form');
+
+if (allForms) {
+    allForms.forEach(form => {
+        form.onsubmit = function () {
+            preloader.classList.add('display');
+        }
+    });
+}
+

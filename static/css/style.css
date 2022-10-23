@@ -299,7 +299,6 @@ footer {
 
 .footer__author {
     font-weight: 700;
-    text-transform: uppercase;
 }
 
 @media (max-height: 880px) {
@@ -390,4 +389,71 @@ footer {
       transform: scale(30);
     }
 
+}
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #eee;
+  display: grid;
+  place-items: center;
+  visibility: hidden;
+}
+
+#preloader.display {
+  visibility: visible;
+}
+
+#preloader > * {
+  position: absolute;
+}
+#preloader .load {
+  border-radius: 50%;
+  width: 70px;
+  aspect-ratio: 1;
+  border: 5px solid #c8c8c8;
+  border-top-color: #eee;
+  position: relative;
+
+  animation: rotate 1s linear infinite;
+}
+#preloader i {
+  transform: scale(0) translate3d(0, 0, 0);
+  color: #595959;
+  opacity: 0.8;
+}
+#preloader i:nth-of-type(1) {
+  animation: scale 3s ease-in-out infinite;
+}
+#preloader i:nth-of-type(2) {
+  animation: scale 3s 1s ease-in-out infinite;
+}
+#preloader i:nth-of-type(3) {
+  animation: scale 3s 2s ease-in-out infinite;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0) translate3d(0, 0, 0);
+  }
+  11% {
+    transform: scale(1.2) translate3d(0, 0, 0);
+  }
+  22% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  33% {
+    transform: scale(0) translate3d(0, 0, 0);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
