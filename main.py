@@ -9,7 +9,7 @@ from object_detection.utils import visualization_utils as viz_utils
 import datetime
 
 warnings.filterwarnings('ignore')
-IMAGE_SIZE = (12, 8)  # Output display size as you want
+IMAGE_SIZE = (8, 12)  # Output display size as you want
 
 PATH_TO_SAVED_MODEL = "saved_model"
 print('Loading model...', end='')
@@ -99,7 +99,7 @@ def result():
             use_normalized_coordinates=True,
             max_boxes_to_draw=200,
             min_score_thresh=.4)
-        plt.figure(figsize=IMAGE_SIZE, dpi=200)
+        plt.figure(dpi=200)
         plt.axis("off")
         plt.imshow(image_np_with_detections)
         plt.savefig('static/outputs/result.png', bbox_inches='tight', pad_inches=0)
