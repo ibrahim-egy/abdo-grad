@@ -1,5 +1,5 @@
-//var image = document.getElementById('img')
-//image.src = URL.createObjectURL(event.target.files[0]);
+var image = document.getElementById('img')
+image.src = '#'
 
 function showImage(event) {
 

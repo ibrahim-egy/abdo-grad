@@ -2,11 +2,13 @@ from flask import Flask, render_template, url_for, request, redirect, flash
 import tensorflow as tf
 import numpy as np
 import warnings
-from PIL import Image
+from PIL import Image, UnidentifiedImageError
 import matplotlib.pyplot as plt
 from object_detection.utils import label_map_util
 from object_detection.utils import visualization_utils as viz_utils
 import datetime
+import os
+import imghdr
 
 warnings.filterwarnings('ignore')
 IMAGE_SIZE = (8, 12)  # Output display size as you want
@@ -67,18 +69,25 @@ def home():
 @app.route('/result', methods=['GET', 'POST'])
 def result():
     if request.method == 'POST':
+
         image = request.files['img']
+
+        type = imghdr.what(image)
+        if type != 'jpeg':
+            if type is None:
+                flash("That's not an Image.")
+            else:
+                flash(f"Sorry Cant Work With .{type}.")
+                flash("Make Sure The Image Is In .jpg format.")
+
+            return redirect(url_for('home'))
+
         image_path = f'static/images/{image.filename}'
         image.save(image_path)
         image_np = load_image_into_numpy_array(image_path)
         input_tensor = tf.convert_to_tensor(image_np)
         input_tensor = input_tensor[tf.newaxis, ...]
-
-        try:
-            detections = detect_fn(input_tensor)
-        except ValueError:
-            flash("Make Sure The Image Is In .jpg format.")
-            return redirect(url_for('home'))
+        detections = detect_fn(input_tensor)
 
         num_detections = int(detections.pop('num_detections'))
         detections = {key: value[0, :num_detections].numpy() for key, value in detections.items()}
@@ -103,6 +112,8 @@ def result():
         plt.axis("off")
         plt.imshow(image_np_with_detections)
         plt.savefig('static/outputs/result.png', bbox_inches='tight', pad_inches=0)
+        os.remove(image_path)
+
         # show image
         # im = Image.open("static/outputs/result.png")
         # im.show()

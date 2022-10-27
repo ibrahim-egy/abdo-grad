@@ -11,7 +11,7 @@ body {
     text-align: center;
     display: flex;
     flex-direction: column;
-    max-height: 90%;
+    max-height: 90vh;
     font-family: 'Montserrat', sans-serif;
 }
 
