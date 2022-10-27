@@ -2,7 +2,7 @@ from flask import Flask, render_template, url_for, request, redirect, flash
 import tensorflow as tf
 import numpy as np
 import warnings
-from PIL import Image, UnidentifiedImageError
+from PIL import Image
 import matplotlib.pyplot as plt
 from object_detection.utils import label_map_util
 from object_detection.utils import visualization_utils as viz_utils
@@ -72,7 +72,7 @@ def result():
 
         image = request.files['img']
         image_type = imghdr.what(image)
-        
+
         if image_type != 'jpeg':
             if image_type is None:
                 flash("That's not an Image.")
