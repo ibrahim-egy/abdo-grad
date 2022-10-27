@@ -5,20 +5,20 @@ item {
 
 item {
     id: 2
-    name: 'healthy'
+    name: 'Healthy'
 }
 
 item {
     id: 3
-    name: 'unhealthy insufficient nutrients'
+    name: 'Insufficient nutrients'
 }
 
 item {
     id: 4
-    name: 'unhealthy sooty mold'
+    name: 'Sooty mold'
 }
 
 item {
     id: 5
-    name: 'unhealthy_foliar gall midge'
+    name: 'Foliar gall midge'
 }

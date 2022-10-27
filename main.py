@@ -29,17 +29,17 @@ app = Flask(__name__)
 app.secret_key = "serakfbeerkbeer"
 
 infections = {
-    'unhealthy sooty mold': {
+    'Sooty mold': {
         "treat": "Spray With detergent Mixture",
         "link": "http://extension.msstate.edu/publications/information-sheets/the-plant-doctor-sooty-mold#:~:text=Once%20sooty%20mold%20is%20established,spray%20it%20on%20the%20plants.",
         'no_treatment': "auto"
     },
-    'unhealthy_foliar gall midge': {
+    'Foliar gall midge': {
         "treat": "Biochemical Spray",
         "link": "https://plantix.net/en/library/plant-diseases/600301/mango-midge",
         'no_treatment': "auto"
     },
-    'unhealthy insufficient nutrients': {
+    'Insufficient nutrients': {
         "treat": "Adding More Nutrients",
         "link": "https://vikaspedia.in/agriculture/crop-production/integrated-pest-managment/ipm-for-fruit-crops/ipm-strategies-for-mango/nutritional-deficiencies-of-mango",
         'no_treatment': "auto"
@@ -49,7 +49,7 @@ infections = {
         "link": "#",
         'no_treatment': "none"
     },
-    'healthy': {
+    'Healthy': {
         'treat': "#",
         "link": "#",
         'no_treatment': "none"
@@ -71,13 +71,13 @@ def result():
     if request.method == 'POST':
 
         image = request.files['img']
-
-        type = imghdr.what(image)
-        if type != 'jpeg':
-            if type is None:
+        image_type = imghdr.what(image)
+        
+        if image_type != 'jpeg':
+            if image_type is None:
                 flash("That's not an Image.")
             else:
-                flash(f"Sorry Cant Work With .{type}.")
+                flash(f"Sorry Cant Work With .{image_type}.")
                 flash("Make Sure The Image Is In .jpg format.")
 
             return redirect(url_for('home'))
