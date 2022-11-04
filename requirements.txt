@@ -1,0 +1,7 @@
+Flask==2.2.2
+matplotlib==3.5.3
+numpy==1.21.6
+object_detection==0.0.3
+Pillow==9.3.0
+tensorflow==2.9.2
+tensorflow_object_detection_api==0.1.1
