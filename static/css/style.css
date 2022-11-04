@@ -80,11 +80,6 @@ img {
     max-width: 800px;
     margin: 50px auto 5px;
 }
-
-
-
-
-
 .table  {
     font-size: 25px;
     font-weight: 400;
@@ -365,30 +360,23 @@ footer {
         top: 5px;
         right: 5px;
     }
-
     .read__button {
         top: 5px;
         right: 5px;
     }
-
     .read__content__ex {
         max-width: 50%;
         font-size: 70%;
     }
-
     .read__content__ex--bad {
         left: 55%;
     }
-
     .read__content__ex--bad:last-child {
         left: 105%;
     }
-
-
     .read__input:checked ~ .read__background {
       transform: scale(30);
     }
-
 }
 
 #preloader {

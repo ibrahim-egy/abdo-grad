@@ -114,9 +114,6 @@ def result():
         plt.savefig('static/outputs/result.png', bbox_inches='tight', pad_inches=0)
         os.remove(image_path)
 
-        # show image
-        # im = Image.open("static/outputs/result.png")
-        # im.show()
         classes = [cls for cls in detections['detection_classes'][detections['detection_scores'] > .4]]
         classes = [category_index.get(cls)['name'] for cls in classes]
         data = {}
