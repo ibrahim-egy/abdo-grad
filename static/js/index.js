@@ -1,5 +1,4 @@
-var image = document.getElementById('img')
-image.src = '#'
+
 
 function showImage(event) {
 
@@ -11,13 +10,9 @@ function showImage(event) {
     document.querySelector('.flashes').style.visibility = 'hidden'
 }
 
-
-
-let preloader = document.getElementById("preloader");
-preloader.classList.add('display')
-
 window.onload = function () {
-    preloader.classList.remove('display')
+    preloader.classList.toggle('display')
+    history.classList.toggle('close')
 }
 
 const allForms = document.querySelectorAll('form');
@@ -25,8 +20,25 @@ const allForms = document.querySelectorAll('form');
 if (allForms) {
     allForms.forEach(form => {
         form.onsubmit = function () {
-            preloader.classList.add('display');
+            preloader.classList.toggle('display');
         }
     });
 }
 
+
+const closeBtn = document.querySelector('.history__close');
+const history = document.querySelector('.history');
+closeBtn.addEventListener('click', () => {
+    history.classList.toggle('close')
+    historyLink.classList.toggle('active')
+    document.querySelector('.history__close-label').classList.toggle('clicked')
+})
+
+const historyLink = document.querySelectorAll('.navigation__item')[3];
+//const links = document.querySelectorAll('.navigation__link')
+historyLink.addEventListener('click', (e)=> {
+    e.preventDefault();
+    historyLink.classList.toggle('active')
+    history.classList.toggle('close');
+    document.querySelector('.history__close-label').classList.toggle('clicked');
+})

@@ -13,7 +13,7 @@ import imghdr
 warnings.filterwarnings('ignore')
 IMAGE_SIZE = (8, 12)  # Output display size as you want
 
-PATH_TO_SAVED_MODEL = "saved_model"
+PATH_TO_SAVED_MODEL = "./saved_model"
 print('Loading model...', end='')
 detect_fn = tf.saved_model.load(PATH_TO_SAVED_MODEL)
 print('Done!')
@@ -66,6 +66,16 @@ def home():
     return render_template('index.html', year=year)
 
 
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+
+@app.route('/register')
+def register():
+    return render_template('register.html')
+
+
 @app.route('/result', methods=['GET', 'POST'])
 def result():
     if request.method == 'POST':
@@ -112,7 +122,6 @@ def result():
         plt.axis("off")
         plt.imshow(image_np_with_detections)
         plt.savefig('static/outputs/result.png', bbox_inches='tight', pad_inches=0)
-        os.remove(image_path)
 
         classes = [cls for cls in detections['detection_classes'][detections['detection_scores'] > .4]]
         classes = [category_index.get(cls)['name'] for cls in classes]

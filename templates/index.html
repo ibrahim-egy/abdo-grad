@@ -1,5 +1,7 @@
 {% include "partials/header.html" %}
 
+
+
 <div class="top">
 
     <h1>Infection Detector</h1>
@@ -11,11 +13,15 @@
             <label for="image-input" class="btn btn-outline-dark"><i class="fa-solid fa-camera"></i> Capture</label>
             <input id="image-input" type="file" name="img" capture onchange="showImage(event)" hidden>
             <div class="img-box" style="visibility:hidden;">
-                <img id="img" src="" alt="Capture Image">
+                <img id="img" src="#" alt="Capture Image" class="captured-image">
             </div>
             <button id="submit-btn" type="submit" class="btn btn-outline-dark" style="visibility:hidden">Go</button>
         </form>
     </div>
 
 </div>
+
+<script>
+    document.querySelector('.navigation__item').classList.add('active');
+</script>
 {% include "partials/footer.html" %}
