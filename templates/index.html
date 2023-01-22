@@ -10,12 +10,12 @@
 
     <div class="main">
         <form action="/result" id="form" method="post" enctype="multipart/form-data">
-            <label for="image-input" class="btn btn-outline-dark"><i class="fa-solid fa-camera"></i> Capture</label>
+            <label for="image-input" class="btn"><i class="fa-solid fa-camera"></i> Capture</label>
             <input id="image-input" type="file" name="img" capture onchange="showImage(event)" hidden>
             <div class="img-box" style="visibility:hidden;">
                 <img id="img" src="#" alt="Capture Image" class="captured-image">
             </div>
-            <button id="submit-btn" type="submit" class="btn btn-outline-dark" style="visibility:hidden">Go</button>
+            <button id="submit-btn" type="submit" class="btn go-btn" style="visibility:hidden">Go</button>
         </form>
     </div>
 

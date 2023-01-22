@@ -1,5 +1,36 @@
 {% include "partials/header.html" %}
 
+<link rel="stylesheet" href="static/css/register.css">
+
+<div class="login_page">
+
+
+    <div class="login_image">
+        <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Login Image" class="login_image-photo">
+    </div>
+
+    <div class="login_box">
+        <i class="fa-solid fa-id-card login_icon"></i>
+<!--        <i class="fa-solid fa-fingerprint login_icon"></i>-->
+        <p class="heading-sub">Create new Account</p>
+        <form action="{{ url_for('register') }}" class="login_form" method="post">
+            <label for="username" class="login_form-label">Username</label>
+            <input type="text" id="username" class="login_form-input" placeholder="Username..." name="username">
+            <label for="email" class="login_form-label">Email</label>
+            <input type="text" id="email" class="login_form-input" placeholder="Email Address..." name="email">
+            <label for="password" class="login_form-label">Password</label>
+            <input type="password" id="password" class="login_form-input" placeholder="Password..." name="password">
+            <label for="confirm-password" class="login_form-label">Confirm Password</label>
+            <input type="password" id="confirm-password" class="login_form-input" placeholder="Password..." name="confirm-password">
+            <button class="login_form-btn">Create Account</button>
+            <p class="newuser">Already have an account? <a href="{{ url_for('login') }}" class="newuser_link">Login</a></p>
+        </form>
+
+    </div>
+
+
+
+</div>
 
 
 

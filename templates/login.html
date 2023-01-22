@@ -1,5 +1,32 @@
 {% include "partials/header.html" %}
 
+<link rel="stylesheet" href="static/css/login.css">
+
+<div class="login_page">
+
+
+    <div class="login_image">
+        <img src="https://images.unsplash.com/photo-1618771622937-35409be962fc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Login Image" class="login_image-photo">
+    </div>
+
+    <div class="login_box">
+        <i class="fa-solid fa-fingerprint login_icon"></i>
+        <p class="heading-sub">Welcome Back :)</p>
+        <form action="{{url_for('login')}}" class="login_form" method="post">
+            <label for="email" class="login_form-label">Username or email</label>
+            <input type="text" id="email" class="login_form-input" placeholder="Username..." name="username">
+            <label for="password" class="login_form-label">Password</label>
+            <input type="password" id="password" class="login_form-input" placeholder="Password..." name="password">
+            <button class="login_form-btn">Login</button>
+            <p class="newuser">New to Detectetron? <a href="{{ url_for('register') }}" class="newuser_link">Create Account</a></p>
+        </form>
+
+    </div>
+
+
+
+</div>
+
 
 
 

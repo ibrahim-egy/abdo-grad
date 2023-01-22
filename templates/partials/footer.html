@@ -68,30 +68,13 @@
     <h3 class="heading-sec">Previous Detections</h3>
   <div class="user__detections">
 
+      {% for src in history %}
     <div class="wrapper">
 
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg" alt="History image" class="user__detections-image">
+        <img src="{{ src }}" alt="History image" class="user__detections-image">
         <i class="fa-solid fa-link link-icon"></i>
     </div>
-    <div class="wrapper">
-
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7Me0fVCkOIoPyxrIVsunQm4gMxHkQJ23GWw&usqp=CAU" alt="History image" class="user__detections-image">
-    <i class="fa-solid fa-link link-icon"></i>
-    </div>
-    <div class="wrapper">
-
-      <img src="https://2.bp.blogspot.com/-mELituNKukU/V3YnW8K0SdI/AAAAAAAAnGA/JSwJj-tRt9Q_Ozm5qaxrEi7FKbPqBiVxgCLcB/s1600/Mango_leaves_young_02.jpg" alt="History image" class="user__detections-image">
-    <i class="fa-solid fa-link link-icon"></i>
-    </div>
-    <div class="wrapper">
-      <img src="https://content.peat-cloud.com/thumbnails/mango-leaf-coating-mite-mango-1570534827.jpg" alt="History image" class="user__detections-image">
-    <i class="fa-solid fa-link link-icon"></i>
-    </div>
-      <div class="wrapper">
-
-          <img src="https://img.freepik.com/premium-photo/green-mango-leaves-isolated_33736-3110.jpg" alt="History image" class="user__detections-image">
-   <i class="fa-solid fa-link link-icon"></i>
-    </div>
+      {% endfor %}
 
   </div>
   <div class="user__box">
