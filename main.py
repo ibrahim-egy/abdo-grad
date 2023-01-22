@@ -41,9 +41,6 @@ def login():
         password = request.form.get('password')
 
         user_found = users.find_one({'name': username})
-        if user_found:
-            
-
 
         print(f"Username: {username}\nPassword: {password}")
 
