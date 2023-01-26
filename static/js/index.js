@@ -7,6 +7,9 @@ function showImage(event) {
     document.getElementById('submit-btn').style.visibility = 'visible'
     document.querySelector('.flashes').style.visibility = 'hidden'
 }
+window.onload = function () {
+    preloader.classList.toggle('display')
+}
 
 const closeBtn = document.querySelector('.history__close');
 const history = document.querySelector('.history');
@@ -16,7 +19,7 @@ closeBtn.addEventListener('click', () => {
     document.querySelector('.history__close-label').classList.toggle('clicked')
 })
 
-const historyLink = document.querySelectorAll('.navigation__item')[3];
+const historyLink = document.querySelector('.navigation__link-history');
 historyLink.addEventListener('click', (e)=> {
     e.preventDefault();
     historyLink.classList.toggle('active')
@@ -24,9 +27,7 @@ historyLink.addEventListener('click', (e)=> {
     document.querySelector('.history__close-label').classList.toggle('clicked');
 })
 
-window.onload = function () {
-    preloader.classList.toggle('display')
-}
+
 
 const allForms = document.querySelectorAll('form');
 
@@ -37,5 +38,17 @@ if (allForms) {
         }
     });
 }
+
+const logoutLink = document.querySelector('.logout')
+
+
+const readLink = document.querySelector('#read-me')
+readLink.addEventListener('click', () => {
+
+    document.querySelector("#input").checked = true;
+})
+
+
+
 
 

@@ -1,38 +1,6 @@
 
 
-<div class="read">
-    <input type="checkbox" id="input" class="read__input">
-    <label for="input" class="read__button">
-      <div class="read__bar read__bar--1"></div>
-      <div class="read__bar read__bar--2"></div>
-      <div class="read__bar read__bar--3"></div>
-    </label>
 
-    <div class="read__background"></div>
-    <div class="read__content">
-            <h2>For Accurate Detection Please Follow The Given Instruction.</h2>
-            <ul>
-                <li>The leaf to be detected is centered</li>
-                <li>The leaf not to be too far away or too close</li>
-                <li>Try to capture high quality image for better detection</li>
-                <li>Make Sure to the camera is foucsed on the leaf</li>
-            </ul>
-            <div class="read__content__ex read__content__ex--good">
-                <i class="fa-regular fa-circle-check fa-4x"></i>
-                <i class="fa-brands fa-envira fa-8x"></i>
-            </div>
-            <div class="read__content__ex read__content__ex--bad">
-              <i class="fa-regular fa-circle-xmark fa-4x"></i>
-              <i class="fa-brands fa-envira fa-4x"></i>
-              <i class="fa-brands fa-envira fa-6x"></i>
-              <i class="fa-brands fa-envira fa-8x"></i>
-            </div>
-            <div class="read__content__ex read__content__ex--bad">
-              <i class="fa-regular fa-circle-xmark fa-4x"></i>
-              <i class="fa-brands fa-envira fa-3x"></i>
-            </div>
-    </div>
-  </div>
 
     {% with messages = get_flashed_messages() %}
   {% if messages %}
@@ -60,7 +28,9 @@
     <i class="fa-solid fa-mosquito fa-2x"></i>
     <i class="fa-solid fa-bug fa-2x"></i>
 </div>
-<div class="history">
+
+
+<div class="history" {% if not auth %} style="display:none" {% endif %}>
   <div class="history__close">
     <input type="checkbox" id="close" class="history__close-checkbox">
     <label for="close" class="history__close-label"><i class="fa-solid fa-angle-up"></i></label>
@@ -69,19 +39,20 @@
   <div class="user__detections">
 
       {% for src in history %}
-    <div class="wrapper">
+        <div class="wrapper">
 
-        <img src="{{ src }}" alt="History image" class="user__detections-image">
-        <i class="fa-solid fa-link link-icon"></i>
-    </div>
+            <img src="{{ src }}" alt="History image" class="user__detections-image">
+            <a href="{{ url_for('result') }}"><i class="fa-solid fa-link link-icon"></i>ad</a>
+        </div>
       {% endfor %}
 
   </div>
   <div class="user__box">
     <img src="https://scontent.fcai19-4.fna.fbcdn.net/v/t1.18169-9/18423735_1319858474750525_6894289703936023221_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=174925&_nc_ohc=yyH3Y6c-KncAX9OAw2t&_nc_ht=scontent.fcai19-4.fna&oh=00_AfDKD3mFUx-E1BiEEhvHCmqpv9UZvfoxKGiWIZQ44k9DSg&oe=63F0F777" alt="User Photo" class="user__box-image">
-    <p class="user__box-name">Abdo elgn</p>
+    <p class="user__box-name">{{ name }}</p>
   </div>
 </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <script src='static/js/index.js'></script>
 </body>

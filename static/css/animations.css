@@ -48,38 +48,6 @@
 
 }
 
-@media (max-width: 1200px) {
-
-    .read__input:checked ~ .read__background {
-      transform: scale(40);
-    }
-}
-
-
-@media (max-width: 750px) {
-
-    .read__background {
-        top: 5px;
-        right: 5px;
-    }
-    .read__button {
-        top: 5px;
-        right: 5px;
-    }
-    .read__content__ex {
-        max-width: 50%;
-        font-size: 70%;
-    }
-    .read__content__ex--bad {
-        left: 55%;
-    }
-    .read__content__ex--bad:last-child {
-        left: 105%;
-    }
-    .read__input:checked ~ .read__background {
-      transform: scale(30);
-    }
-}
 
 #preloader {
   position: fixed;

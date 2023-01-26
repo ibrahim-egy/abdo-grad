@@ -6,7 +6,7 @@
 
 
     <div class="login_image">
-        <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Login Image" class="login_image-photo">
+        <img src="https://images.unsplash.com/photo-1618771622937-35409be962fc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Login Image" class="login_image-photo">
     </div>
 
     <div class="login_box">
@@ -14,10 +14,11 @@
 <!--        <i class="fa-solid fa-fingerprint login_icon"></i>-->
         <p class="heading-sub">Create new Account</p>
         <form action="{{ url_for('register') }}" class="login_form" method="post">
+            <span class="error"></span>
             <label for="username" class="login_form-label">Username</label>
             <input type="text" id="username" class="login_form-input" placeholder="Username..." name="username">
             <label for="email" class="login_form-label">Email</label>
-            <input type="text" id="email" class="login_form-input" placeholder="Email Address..." name="email">
+            <input type="email" id="email" class="login_form-input" placeholder="Email Address..." name="email">
             <label for="password" class="login_form-label">Password</label>
             <input type="password" id="password" class="login_form-input" placeholder="Password..." name="password">
             <label for="confirm-password" class="login_form-label">Confirm Password</label>
@@ -33,9 +34,7 @@
 </div>
 
 
-
-
-
+<script src="static/js/register.js"></script>
 <script>
     document.querySelectorAll('.navigation__item')[2].classList.add('active');
 </script>

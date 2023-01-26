@@ -20,8 +20,15 @@
 <nav class="navigation">
     <ul class="navigation__list">
         <li class="navigation__item"><a href="{{ url_for('home') }}" class="navigation__link">Home</a></li>
-        <li class="navigation__item"><a href="{{ url_for('login') }}" class="navigation__link">Log in</a></li>
-        <li class="navigation__item"><a href="{{ url_for('register') }}" class="navigation__link">Register</a></li>
-        <li class="navigation__item"><a href="#" class="navigation__link">History</a></li>
+        {% if not auth %}
+            <li class="navigation__item"><a href="{{ url_for('login') }}" class="navigation__link">Log in</a></li>
+            <li class="navigation__item"><a href="{{ url_for('register') }}" class="navigation__link">Register</a></li>
+            <li class="navigation__item" style="display: none;"><a href="#" class="navigation__link navigation__link-history">History</a></li>
+        {% endif %}
+        {% if auth %}
+            <li class="navigation__item"><a href="{{ url_for('logout') }}" class="navigation__link logout">Logout</a></li>
+            <li class="navigation__item navigation__link-history"><a href="#" class="navigation__link navigation__link-history">History</a></li>
+        {% endif %}
+        <li class="navigation__item" id="read-me"><a href="{{ url_for('read') }}" class="navigation__link">Instructions</a></li>
     </ul>
 </nav>

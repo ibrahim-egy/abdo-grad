@@ -152,6 +152,7 @@ footer {
   top: 30px;
   left: 30px;
   color: #212529;
+  width: 100%;
 }
 .navigation__list {
   display: flex;
@@ -161,13 +162,16 @@ footer {
   margin: 0;
 }
 .navigation__item {
-  padding: 10px;
   position: relative;
   margin-left: 10px;
   border-radius: 10px;
   transition: all .2s ease;
   cursor: pointer;
+  display: flex;
+  justify-items: center;
+  align-items: center;
 }
+
 
 .navigation__item:hover,
 .navigation__item:focus {
@@ -187,16 +191,11 @@ footer {
   transition: all 0.2s ease;
 }
 
-
-
-/*
-.navigation__item:hover::before {
-  transform: scaleX(0.8);
-} */
 .navigation__link:link,
 .navigation__link:visited {
   text-decoration: none;
   color: inherit;
+  padding: 10px;
 }
 
 .btn {

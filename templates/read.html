@@ -1,0 +1,73 @@
+{% include "partials/header.html" %}
+
+
+<!--<div class="read">-->
+<!--    <input type="checkbox" id="input" class="read__input">-->
+<!--    <label for="input" class="read__button">-->
+<!--      <div class="read__bar read__bar&#45;&#45;1"></div>-->
+<!--      <div class="read__bar read__bar&#45;&#45;2"></div>-->
+<!--      <div class="read__bar read__bar&#45;&#45;3"></div>-->
+<!--    </label>-->
+
+<!--    <div class="read__background"></div>-->
+<!--    <div class="read__content">-->
+<!--            <h2>For Accurate Detection Please Follow The Given Instruction.</h2>-->
+<!--            <ul>-->
+<!--                <li>The leaf to be detected is centered</li>-->
+<!--                <li>The leaf not to be too far away or too close</li>-->
+<!--                <li>Try to capture high quality image for better detection</li>-->
+<!--                <li>Make Sure to the camera is foucsed on the leaf</li>-->
+<!--            </ul>-->
+<!--            <div class="read__content__ex read__content__ex&#45;&#45;good">-->
+<!--                <i class="fa-regular fa-circle-check fa-4x"></i>-->
+<!--                <i class="fa-brands fa-envira fa-8x"></i>-->
+<!--            </div>-->
+<!--            <div class="read__content__ex read__content__ex&#45;&#45;bad">-->
+<!--              <i class="fa-regular fa-circle-xmark fa-4x"></i>-->
+<!--              <i class="fa-brands fa-envira fa-4x"></i>-->
+<!--              <i class="fa-brands fa-envira fa-6x"></i>-->
+<!--              <i class="fa-brands fa-envira fa-8x"></i>-->
+<!--            </div>-->
+<!--            <div class="read__content__ex read__content__ex&#45;&#45;bad">-->
+<!--              <i class="fa-regular fa-circle-xmark fa-4x"></i>-->
+<!--              <i class="fa-brands fa-envira fa-3x"></i>-->
+<!--            </div>-->
+<!--    </div>-->
+<!--</div>-->
+<div class="read">
+    <div class="read-points">
+        <h2>For Accurate Detection Please Follow The Given Instruction.</h2>
+        <ul>
+            <li>The leaf to be detected is centered</li>
+            <li>The leaf not to be too far away or too close</li>
+            <li>Try to capture high quality image for better detection</li>
+            <li>Make Sure to the camera is foucsed on the leaf</li>
+        </ul>
+    </div>
+
+    <div class="read-ex">
+        <div class="read__content__ex read__content__ex--good">
+            <i class="fa-regular fa-circle-check fa-4x"></i>
+            <i class="fa-brands fa-envira fa-8x"></i>
+        </div>
+        <div class="read__content__ex read__content__ex--bad">
+          <i class="fa-regular fa-circle-xmark fa-4x"></i>
+          <i class="fa-brands fa-envira fa-4x"></i>
+          <i class="fa-brands fa-envira fa-6x"></i>
+          <i class="fa-brands fa-envira fa-8x"></i>
+
+        </div>
+        <div class="read__content__ex read__content__ex--bad">
+          <i class="fa-regular fa-circle-xmark fa-4x"></i>
+          <i class="fa-brands fa-envira fa-3x"></i>
+          <i class="fa-solid fa-leaf fa-5x"></i>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    document.querySelector('#read-me').classList.toggle('active')
+</script>
+
+{% include "partials/footer.html" %}

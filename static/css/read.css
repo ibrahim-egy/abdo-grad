@@ -1,104 +1,32 @@
+
 .read {
-    height: 0px;
-    width: 0;
+    animation: slide .7s ease;
+}
+.read-points > * {
+    text-align: left;
 }
 
-.read > * {
-  width: 50%;
-}
-.read__input {
-  visibility: hidden;
-}
-.read__button {
-  position: fixed;
-  width: 60px;
-  aspect-ratio: 1;
-  background-color: #ffedbf;
-  border-radius: 50%;
-  top: 30px;
-  right: 30px;
-  z-index: 1000;
-  cursor: pointer;
-}
-.read__bar {
-  width: 50%;
-  height: 2px;
-  background: #333;
-  position: absolute;
-  left: 25%;
-  transition: all 0.1s;
-}
-.read__bar--1 {
-  top: 35%;
-}
-.read__bar--2 {
-  top: 50%;
-}
-.read__bar--3 {
-  top: 65%;
-}
-.read__button:hover .read__bar--1 {
-  top: 33%;
-}
-.read__button:hover .read__bar--3 {
-  top: 67%;
-}
-.read__input:checked + .read__button .read__bar--1 {
-  transform: rotate(45deg);
-  top: 50%;
-}
-.read__input:checked + .read__button .read__bar--3 {
-  transform: rotate(135deg);
-  top: 50%;
-}
-.read__input:checked + .read__button .read__bar--2 {
-  opacity: 0;
-}
-.read__background {
-  position: fixed;
-  width: 60px;
-  aspect-ratio: 1;
-  background-image: radial-gradient(#ccc6b4, #fff8e1);
-  border-radius: 50%;
-  top: 30px;
-  right: 30px;
-  z-index: 975;
-  transition: all 0.7s cubic-bezier(0.86, 0, 0.07, 1);
+.read-points {
+    padding: 20px;
+    margin: 100px auto 0;
+    max-width: 1000px;
 }
 
+.read-ex {
 
-
-.read__input:checked ~ .read__background {
-  transform: scale(70);
-}
-.read__content {
-  position: absolute;
-  top: 5%;
-  left: 10%;
-  opacity: 0;
-  z-index: 975;
-  visibility: hidden;
-  color: #000;
-  text-align: left;
-  transition: opacity 0.7s .5s;
-}
-
-.read__input:checked ~ .read__content {
-  opacity: 1;
-  visibility: visible;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 80px;
 }
 .read__content__ex {
-  display: inline-block;
-  margin-top: 100px;
-  position: absolute;
+
   width: 150px;
   height: 250px;
   border: 5px solid #00a600;
   border-radius: 25px;
   border-style: dashed;
-}
-.read__content__ex--good {
-  left: 5%;
+  position: relative;
 }
 .read__content__ex--good i {
   position: absolute;
@@ -114,7 +42,6 @@
 }
 .read__content__ex--bad {
   border-color: #cc0000;
-  left: 45%;
 }
 .read__content__ex--bad i {
   position: absolute;
@@ -137,9 +64,6 @@
   background-color: #cc0000;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-}
-.read__content__ex--bad:last-child {
-  left: 85%;
 }
 .read__content__ex--bad:last-child .fa-3x {
   top: 50%;

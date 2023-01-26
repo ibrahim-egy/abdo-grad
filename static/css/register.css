@@ -72,6 +72,7 @@ body {
     height: auto;
     flex: 1;
     padding: 0 10%;
+    position: relative;
 }
 
 .login_form-input {
@@ -111,7 +112,7 @@ body {
     border: none;
     margin-bottom: auto;
     align-self: center;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .newuser {
@@ -123,4 +124,11 @@ body {
 
     color: #b5a085;
     border-bottom: 1px solid #b5a085;
+}
+
+.error {
+    position: absolute;
+    color: firebrick;
+    bottom: 120px;
+    font-size: 13px;
 }
