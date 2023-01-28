@@ -37,33 +37,41 @@ class Users:
         user = self.users.find_one({
             'username': name
         })
-        if user:
+        if user is not None:
             if check_password_hash(password=password, pwhash=user['password']):
                 return True
-            else:
-                flash("incorrect password")
+            elif not check_password_hash(password=password, pwhash=user['password']):
+                flash("Incorrect password")
                 return False
+        else:
+            flash("username not found register instead")
+            return "not_found"
 
-    def save_image(self, path, name):
+    def save_image(self, data, path, name):
 
-        print(path)
+        for item in data:
+            class_name = item[2:]
+            class_score = data[item]['score']
+            break
         user = self.users.find_one({
             'username': name
         })
+
         history = user['history']
-        new_history = [path]
-        for src in history:
-            new_history.append(src)
+        new_history = [{
+            'name': class_name,
+            'score': class_score,
+            'path': path
+        }]
+        for item in history:
+            new_history.append(item)
         self.users.update_one(
             {'username': name}, {"$set": {'history': new_history}}
         )
 
     def get_history(self, name):
-        print(name)
         user = self.users.find_one({
             'username': name
         })
-        print(user)
         user.get('history')
-        print(user.get('history'))
         return user.get('history')

@@ -19,6 +19,15 @@
     gap: 30px;
     margin-top: 80px;
 }
+
+@media (max-width: 56.25em) {
+    .read-ex {
+
+        gap: 0px;
+    }
+
+}
+
 .read__content__ex {
 
   width: 150px;

@@ -2,14 +2,14 @@
 
 
 
-    {% with messages = get_flashed_messages() %}
-  {% if messages %}
-    <ul class=flashes>
-    {% for message in messages %}
-      <li>{{ message }}</li>
-    {% endfor %}
-    </ul>
-  {% endif %}
+{% with messages = get_flashed_messages() %}
+ {% if messages %}
+  <ul class='flash'>
+  {% for message in messages %}
+    <li>{{ message }}</li>
+  {% endfor %}
+  </ul>
+ {% endif %}
 {% endwith %}
 
     <footer>
@@ -38,17 +38,18 @@
     <h3 class="heading-sec">Previous Detections</h3>
   <div class="user__detections">
 
-      {% for src in history %}
+      {% for item in history %}
         <div class="wrapper">
 
-            <img src="{{ src }}" alt="History image" class="user__detections-image">
-            <a href="{{ url_for('result') }}"><i class="fa-solid fa-link link-icon"></i>ad</a>
+            <img src="{{ item.path }}" alt="History image" class="user__detections-image">
+            <p class="history__item-p">{{ item.name }} - {{ item.score }}%</p>
+            <i class="fa-solid fa-link link-icon"></i>
         </div>
       {% endfor %}
 
   </div>
   <div class="user__box">
-    <img src="https://scontent.fcai19-4.fna.fbcdn.net/v/t1.18169-9/18423735_1319858474750525_6894289703936023221_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=174925&_nc_ohc=yyH3Y6c-KncAX9OAw2t&_nc_ht=scontent.fcai19-4.fna&oh=00_AfDKD3mFUx-E1BiEEhvHCmqpv9UZvfoxKGiWIZQ44k9DSg&oe=63F0F777" alt="User Photo" class="user__box-image">
+    <img src="https://cdn.icon-icons.com/icons2/1999/PNG/512/avatar_people_person_profile_student_user_icon_123383.png" alt="User Photo" class="user__box-image">
     <p class="user__box-name">{{ name }}</p>
   </div>
 </div>

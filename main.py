@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect, session
+from flask import Flask, render_template, url_for, request, redirect, session, flash
 import datetime
 from detect import Detect, validate_image
 from database import Users
@@ -10,7 +10,7 @@ app.secret_key = "serakfbeerkbeer"
 # get year for copyright
 today = datetime.date.today()
 year = today.strftime("%Y")
-
+#
 detect = Detect()
 
 
@@ -26,8 +26,8 @@ def home():
 @app.route('/read')
 def read():
     if 'username' in session:
-        history = users.get_history(session['username'])
         name = session['username']
+        history = users.get_history(session['username'])
         return render_template('read.html', year=year, auth=True, history=history, name=name)
     return render_template('read.html', year=year, auth=False)
 
@@ -37,12 +37,17 @@ def login():
     if request.method == "POST":
         username = request.form.get('username')
         password = request.form.get('password')
+
         if users.login_user(username, password):
             session['username'] = username
             print(f"Logged in as: {session['username']}")
             return redirect(url_for('home'))
-
-        return redirect(url_for('login'))
+        elif not users.login_user(username, password):
+            session.pop('username', None)
+            return redirect(url_for('login'))
+        elif users.login_user(username, password) == "not_found":
+            session.pop('username', None)
+            return redirect(url_for('register'))
     return render_template('login.html')
 
 
@@ -54,9 +59,7 @@ def register():
         password = request.form.get('password')
 
         if users.register_user(username, email, password):
-            session['username'] = username
-            print(f"Logged in as: {session['username']}")
-            return redirect(url_for('home'))
+            return redirect(url_for('login'))
     return render_template('register.html')
 
 
@@ -76,16 +79,12 @@ def result():
 
         image_path = f'static/images/{image.filename}'
         image.save(image_path)
-
-        if 'username' in session:
-            users.save_image(image_path, session['username'])
-
         data = detect.detect(image_path)
-        history = users.get_history(session['username'])
-        print(history)
+        print(data)
         if 'username' in session:
+            users.save_image(data, image_path, session['username'])
+            history = users.get_history(session['username'])
             name = session['username']
-            print(name)
             return render_template('result.html', img="static/outputs/result.png", data=data, year=year,
                                    history=history, auth=True, name=name)
         return render_template('result.html', img="static/outputs/result.png", data=data, year=year)

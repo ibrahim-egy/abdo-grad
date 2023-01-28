@@ -16,6 +16,8 @@ body {
     max-height: 90vh;
     font-family: 'Montserrat', sans-serif;
     color: var(--primary-color);
+    margin: 0;
+    font-size: 110%;
 }
 
 form {
@@ -35,6 +37,11 @@ form {
 
 .top {
     margin-top: 100px;
+    animation: slide 1s ease;
+}
+
+.top > h1 {
+    font-weight: 700;
 }
 
 .res-box {
@@ -62,9 +69,7 @@ form {
 }
 
 
-#submit-btn {
-    margin-top: 10px;
-}
+
 
 .res {
     padding: 0 12px;
@@ -119,6 +124,13 @@ footer {
     bottom: 0;
     width: 100%;
 }
+@media (max-width: 56.25em) {
+    footer {
+
+        display: none;
+    }
+
+}
 
 .footer {
 
@@ -152,7 +164,6 @@ footer {
   top: 30px;
   left: 30px;
   color: #212529;
-  width: 100%;
 }
 .navigation__list {
   display: flex;
@@ -163,13 +174,17 @@ footer {
 }
 .navigation__item {
   position: relative;
-  margin-left: 10px;
+
   border-radius: 10px;
   transition: all .2s ease;
   cursor: pointer;
   display: flex;
   justify-items: center;
   align-items: center;
+}
+
+.navigation__item:not(:first-child) {
+    margin-left: 10px;
 }
 
 
@@ -201,10 +216,11 @@ footer {
 .btn {
     background-color: transparent;
     color: #5a4d3c;
-    padding: 5px 10px;
+    padding: 7px 10px;
     border-radius: 5px;
     border: 1px solid #5a4d3c;
     transition: all .2s;
+
 }
 .btn:hover,
 .btn:focus {
@@ -213,49 +229,19 @@ footer {
     border-color: #8d7a5e;
 }
 
-.go-btn {
-    padding: 5px 20px;
+#submit-btn {
+    margin-top: 10px;
+    padding: 10px 5px;
+    font-size: 15px;
+    border: 2px solid #8d7a5e;
 }
 .active {
     color: #eee;
     background-color: #8d7a5e;
 }
 
-/* LOGIN */
-
-
-
-/* .login_box {
-
-  padding-bottom: 200px;
-  text-align: center;
-  flex: 0 30%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #bfb08e;
+.flash {
+    position: fixed;
+    top: 100px;
+    list-style: none;
 }
-.login_form {
-
-
-}
-.login_form > * {
-  margin-bottom: 20px;
-  width: 60%;
-}
-.login_form-input {
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: 1px solid #9d9c98;
-  background-color: #b6b6b1;
-}
-.login_form-btn {
-  border: 1px solid #9d9c98;
-  background-color: #b6b6b1;
-
-  border-radius: 10px;
-  background: #333;
-  padding: 10px 20px;
-  color: #eee;
-} */

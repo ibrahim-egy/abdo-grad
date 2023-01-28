@@ -1,12 +1,13 @@
 {% include "partials/header.html" %}
 
+<link rel="stylesheet" href="static/css/form.css">
 <link rel="stylesheet" href="static/css/register.css">
 
 <div class="login_page">
 
 
     <div class="login_image">
-        <img src="https://images.unsplash.com/photo-1618771622937-35409be962fc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Login Image" class="login_image-photo">
+        <img src="https://images.unsplash.com/photo-1516616210665-8e05839c5c8f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80" alt="Login Image" class="login_image-photo">
     </div>
 
     <div class="login_box">
@@ -23,7 +24,7 @@
             <input type="password" id="password" class="login_form-input" placeholder="Password..." name="password">
             <label for="confirm-password" class="login_form-label">Confirm Password</label>
             <input type="password" id="confirm-password" class="login_form-input" placeholder="Password..." name="confirm-password">
-            <button class="login_form-btn">Create Account</button>
+            <button class="login_form-btn">Create Account <i class="fa-solid fa-file-export"></i></button>
             <p class="newuser">Already have an account? <a href="{{ url_for('login') }}" class="newuser_link">Login</a></p>
         </form>
 

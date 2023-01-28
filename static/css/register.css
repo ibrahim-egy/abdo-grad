@@ -1,134 +1,61 @@
-:root {
-    --form-color: #e9e9e9;
-}
-body {
-
-    background-image: linear-gradient(to bottom right, #e0dacb, #998263);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-height: 100vh;
-    height: 100vh;
-}
-
-.history {
-
-    display: none;
-}
-
-.active {
-    color: #eee;
-    background-color: #8d7a5e;
-
-}
-
 .login_page {
-    display: flex;
-    width: 70%;
-    height: 70%;
-    margin: auto;
-    border-radius: 25px;
-    align-self: center;
-    overflow: hidden;
-    animation: slide 1s ease;
+    height: 65%;
 
 }
 
-.login_image {
-    flex: 0 0 60%;
-    height: 100%;
-    overflow: hidden;
-    display: flex;
-
-}
-
-.login_image-photo {
-    align-self: flex-start;
-    flex: 0 100%;
-    z-index: -1;
-    height: 100%;
-}
-
-.login_box {
-    flex: 0 0 40%;
-    display: flex;
-    flex-direction: column;
-    background-color: var(--form-color);
-    padding-top: 5%;
-}
-.heading-sub {
-
-    font-weight: 700;
-    color: #685843;
-}
-
-.login_icon {
-    font-size: 30px;
-    margin-bottom: 20px;
-}
 .login_form {
     display: flex;
     flex-direction: column;
     height: auto;
     flex: 1;
-    padding: 0 10%;
-    position: relative;
+    padding: 0 15%;
+}
+
+.login_form > * {
+      font-size: 17px;
 }
 
 .login_form-input {
-  padding: 10px 20px 3px 0;
+  padding: 10px 20px 3px 5px;
   outline: none;
   border: none;
-  border-bottom: 2px solid rgba(104, 88, 67, .2);
-  margin-bottom: 15px;
+  border-bottom: 2px solid rgba(104, 88, 67, .1);
+  margin-bottom: 20px;
   background-color: var(--form-color);
   transition: all .2s ease;
   color: #685843;
+  font-size: 17px;
 }
 
 .login_form-input:focus {
+    border-bottom: 2px solid rgba(104, 88, 67, .3);
 }
 ::placeholder {
 
-    color: rgba(103, 103, 103,0.5);
+    color: rgba(103, 103, 103,0.2);
 }
 
 .login_form-label {
     align-self: flex-start;
     color: #9a8364;
-
-    font-size: 13px;
     cursor: pointer;
-
 }
 
 
 .login_form-btn {
 
-    padding: 10px 50px;
+    padding: 10px 35%;
     border-radius: 50px;
     background-color: #e9ceab;
     outline: none;
     border: none;
     margin-bottom: auto;
     align-self: center;
-    margin-top: 40px;
-}
-
-.newuser {
-    font-size: 13px;
-}
-
-.newuser_link:link,
-.newuser_link:visited{
-
-    color: #b5a085;
-    border-bottom: 1px solid #b5a085;
-}
-
-.error {
-    position: absolute;
-    color: firebrick;
-    bottom: 120px;
-    font-size: 13px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all .2s;
+    box-shadow: 0 10px 40px rgba(103, 103, 103,0.3);
+    color: #9a8364;
+    font-size: 15px;
+    font-weight: 100;
 }

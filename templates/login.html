@@ -1,6 +1,6 @@
 {% include "partials/header.html" %}
 
-<link rel="stylesheet" href="static/css/login.css">
+<link rel="stylesheet" href="static/css/form.css">
 
 <div class="login_page">
 
@@ -17,7 +17,7 @@
             <input type="text" id="email" class="login_form-input" placeholder="Username..." name="username">
             <label for="password" class="login_form-label">Password</label>
             <input type="password" id="password" class="login_form-input" placeholder="Password..." name="password">
-            <button class="login_form-btn">Login</button>
+            <button class="login_form-btn">Login <i class="fa-solid fa-arrow-right"></i></button>
             <p class="newuser">New to Detectetron? <a href="{{ url_for('register') }}" class="newuser_link">Create Account</a></p>
         </form>
 

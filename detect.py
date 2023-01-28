@@ -117,5 +117,10 @@ class Detect:
                 "more_info": infections[classes[i]]['link'],
                 'show': infections[classes[i]]['no_treatment']
             }
-
-        return data
+        new_data = {}
+        for item in data:
+            class_name = item[2:]
+            if class_name == "Mango":
+                continue
+            new_data[item] = data[item]
+        return new_data
