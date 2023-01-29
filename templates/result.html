@@ -5,35 +5,73 @@
         <div class="res-box">
             <img src="{{ img }}" alt="Result Image" class="result-image">
         </div>
-        <div>
-            {% if data == {} %}
-                <h1>Un Recognised!</h1>
-                <p>That not a Mango leaf Photo please make sure you follow the instruction for better detection.</p>
-            {% else %}
-                <table class="table">
-                    <thead>
-                        <th>Class</th>
-                        <th>Score</th>
-                        <th>Treatment</th>
-                        <th>Learn More</th>
-                    </thead>
-                    <tbody>
-                        {% for class in data %}
-                            <tr>
-                                <td>{{ class[2:] }}</td>
-                                <td>{{ data[class].score }}%</td>
-                                <td style="text-align: center;">{{ data[class].treat }}</td>
-                                {% if class[2:] == "healthy" or class[2:] == "Mango" %}
-                                    <td>Great Work</td>
-                                {% else %}
-                                    <td><a href='{{ data[class].more_info }}' style="pointer-events: {{data[class].show }}">Full Treatment Plan&rarr;</a></td>
-                                {% endif %}
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            {% endif %}
+        {% if data == {} %}
+            <h1>Un Recognised!</h1>
+            <p>That not a Mango leaf Photo please make sure you follow the instruction for better detection.</p>
+        {% else %}
+        <div class="table-border">
+            <div class="table">
 
+                <h2 class="table__head-heading">Class</h2>
+                <h2 class="table__head-heading">Score</h2>
+                <h2 class="table__head-heading">Treatment</h2>
+                <h2 class="table__head-heading">Learn</h2>
+
+                {% for class in data %}
+                    <p>{{ class[2:] }}</p>
+                    <p class="table__score">{{ data[class].score }}%</p>
+                    <p style="text-align: center;">{{ data[class].treat }}</p>
+                    {% if class[2:] == "Healthy" or class[2:] == "Mango" %}
+                        <p>Great Work</p>
+                    {% else %}
+                        <p><a href='{{ data[class].more_info }}' style="pointer-events: {{data[class].show }}">Full Treatment Plan&rarr;</a></p>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
         </div>
+        {% endif %}
     </div>
+<!--        <div>-->
+<!--            {% if data == {} %}-->
+<!--                <h1>Un Recognised!</h1>-->
+<!--                <p>That not a Mango leaf Photo please make sure you follow the instruction for better detection.</p>-->
+<!--            {% else %}-->
+<!--                <table class="table">-->
+<!--                    <thead>-->
+<!--                        <th>Class</th>-->
+<!--                        <th>Score</th>-->
+<!--                        <th>Treatment</th>-->
+<!--                        <th>Learn More</th>-->
+<!--                    </thead>-->
+<!--                    <tbody>-->
+<!--                        {% for class in data %}-->
+<!--                            <tr>-->
+<!--                                <td>{{ class[2:] }}</td>-->
+<!--                                <td>{{ data[class].score }}%</td>-->
+<!--                                <td style="text-align: center;">{{ data[class].treat }}</td>-->
+<!--                                {% if class[2:] == "Healthy" or class[2:] == "Mango" %}-->
+<!--                                    <td>Great Work</td>-->
+<!--                                {% else %}-->
+<!--                                    <td><a href='{{ data[class].more_info }}' style="pointer-events: {{data[class].show }}">Full Treatment Plan&rarr;</a></td>-->
+<!--                                {% endif %}-->
+<!--                            </tr>-->
+<!--                        {% endfor %}-->
+<!--                    </tbody>-->
+<!--                </table>-->
+
+<!--                -->
+<!--            {% endif %}-->
+
+<!--        </div>-->
+
+
+
+
+<!--        <h5 class="table__head-heading">Class</h5>-->
+<!--        <h5 class="table__head-heading">Score</h5>-->
+<!--        <h5 class="table__head-heading">Treatment</h5>-->
+<!--        <h5 class="table__head-heading">Learn</h5>-->
+
+
 {% include "partials/footer.html" %}

@@ -74,7 +74,7 @@ form {
 .res {
     padding: 0 12px;
     height: 100%;
-    max-width: 800px;
+    max-width: 900px;
     margin: 50px auto 5px;
 }
 
@@ -84,31 +84,55 @@ form {
     width: 95%;
     height: 90%;
 }
-.table  {
-    font-size: 25px;
-    font-weight: 400;
+
+.table-border {
+    background-color: rgba(90, 77, 60, .5);
+    border-radius: 10px;
+}
+
+.table {
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    justify-items: center;
+    border: 2px solid;
+    border-color: rgba(90, 77, 60, .05);
+    border-radius: 10px;
+    grid-gap: 2px;
+    align-items: center;
+    overflow: hidden;
+
+}
+
+.table__score {
+    color: #4e843b;
+    font-weight: 700;
 }
 
 .table > * {
+    padding: 10px 15px;
+    margin: 0;
+    position: relative;
+    width: calc(100% - 30px);
+    background: #cdc2b1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 20px);
+}
 
-    padding: 10px;
+
+
+.table > p {
+    font-size: 25px;
+
 }
 
 
 a {
     text-decoration: none;
 }
-
-thead > tr > th:not(:first-child) {
-    text-align: center;
-}
-
-td:last-child {
-    text-align: center;
-}
-
-
-
 
 .flashes {
 

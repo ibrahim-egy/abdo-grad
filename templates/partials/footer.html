@@ -42,7 +42,12 @@
         <div class="wrapper">
 
             <img src="{{ item.path }}" alt="History image" class="user__detections-image">
-            <p class="history__item-p">{{ item.name }} - {{ item.score }}%</p>
+
+            {% if item.name == "Unrecognized" %}
+                <p class="history__item-p">{{ item.name }}</p>
+            {% else %}
+                <p class="history__item-p">{{ item.name }} - {{ item.score }}%</p>
+            {% endif %}
             <i class="fa-solid fa-link link-icon"></i>
         </div>
       {% endfor %}

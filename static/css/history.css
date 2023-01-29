@@ -17,7 +17,7 @@
   left: 0;
   display: flex;
   flex-direction: column;
-  height: 35px;
+  max-height: 35px;
   transition: all .4s ease;
   overflow: hidden;
 
@@ -44,7 +44,7 @@
 }
 
 .history.close {
-    height: 50%;
+    max-height: 100%;
 }
 .history__close {
   border-bottom: var(--border);
@@ -110,6 +110,11 @@
 
 .user__detections-image:hover {
     filter: brightness(80%) blur(2px);
+}
+
+.history__item-p {
+
+    margin: 5px 0;
 }
 
 .link-icon {

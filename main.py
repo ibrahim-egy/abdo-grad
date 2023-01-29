@@ -38,16 +38,17 @@ def login():
         username = request.form.get('username')
         password = request.form.get('password')
 
-        if users.login_user(username, password):
+        res = users.login_user(username, password)
+
+        if res == "not_found":
+            return redirect(url_for('register'))
+        if res:
             session['username'] = username
             print(f"Logged in as: {session['username']}")
             return redirect(url_for('home'))
-        elif not users.login_user(username, password):
-            session.pop('username', None)
+        elif not res:
             return redirect(url_for('login'))
-        elif users.login_user(username, password) == "not_found":
-            session.pop('username', None)
-            return redirect(url_for('register'))
+
     return render_template('login.html')
 
 
