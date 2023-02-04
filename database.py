@@ -8,12 +8,10 @@ from flask import flash
 load_dotenv()
 mongo_url = os.getenv('MONGODB')
 
-
-
-
 client = MongoClient(mongo_url)
 db = client['abdoDB']
 infections = db['infections']
+
 
 class Users:
     def __init__(self):

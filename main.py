@@ -2,10 +2,14 @@ from flask import Flask, render_template, url_for, request, redirect, session, f
 import datetime
 from detect import Detect, validate_image
 from database import Users
+from dotenv import load_dotenv
+import os
 
 users = Users()
 app = Flask(__name__)
-app.secret_key = "serakfbeerkbeer"
+
+load_dotenv()
+app.secret_key = os.getenv('SECRET')
 
 # get year for copyright
 today = datetime.date.today()

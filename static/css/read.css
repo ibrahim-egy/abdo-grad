@@ -16,11 +16,19 @@
 
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 100px;
     margin-top: 80px;
 }
 
 @media (max-width: 56.25em) {
+    .read-ex {
+
+        gap: 30px;
+    }
+
+}
+
+@media (max-width: 37.5em) {
     .read-ex {
 
         gap: 0px;
