@@ -2,15 +2,18 @@ import os
 from pymongo import MongoClient
 from dotenv import load_dotenv
 from werkzeug.security import generate_password_hash, check_password_hash
-from numpy import asarray
-from PIL import Image
-import blosc
 
 from flask import flash
 
 load_dotenv()
 mongo_url = os.getenv('MONGODB')
 
+
+
+
+client = MongoClient(mongo_url)
+db = client['abdoDB']
+infections = db['infections']
 
 class Users:
     def __init__(self):
@@ -48,7 +51,6 @@ class Users:
             elif not check_password_hash(password=password, pwhash=user['password']):
                 flash("Incorrect password")
                 return False
-
 
     def save_image(self, data, path, name):
 

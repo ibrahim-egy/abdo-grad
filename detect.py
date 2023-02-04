@@ -7,34 +7,8 @@ import matplotlib.pyplot as plt
 from object_detection.utils import label_map_util
 from object_detection.utils import visualization_utils as viz_utils
 import imghdr
+from database import infections
 
-infections = {
-    'Sooty mold': {
-        "treat": "Spray With detergent Mixture",
-        "link": "http://extension.msstate.edu/publications/information-sheets/the-plant-doctor-sooty-mold#:~:text=Once%20sooty%20mold%20is%20established,spray%20it%20on%20the%20plants.",
-        'no_treatment': "auto"
-    },
-    'Foliar gall midge': {
-        "treat": "Biochemical Spray",
-        "link": "https://plantix.net/en/library/plant-diseases/600301/mango-midge",
-        'no_treatment': "auto"
-    },
-    'Insufficient nutrients': {
-        "treat": "Adding More Nutrients",
-        "link": "https://vikaspedia.in/agriculture/crop-production/integrated-pest-managment/ipm-for-fruit-crops/ipm-strategies-for-mango/nutritional-deficiencies-of-mango",
-        'no_treatment': "auto"
-    },
-    'Mango': {
-        'treat': "#",
-        "link": "#",
-        'no_treatment': "none"
-    },
-    'Healthy': {
-        'treat': "#",
-        "link": "#",
-        'no_treatment': "none"
-    }
-}
 
 
 def load_image_into_numpy_array(path):
@@ -111,11 +85,15 @@ class Detect:
             name = f"{i + 1}_{classes[i]}"
             score = detections['detection_scores'][i] * 100
             score = "{:.2f}".format(score)
+            infection = infections.find_one({
+                'name': classes[i]
+            })
+            print(infection)
             data[name] = {
                 "score": score,
-                "treat": infections[classes[i]]['treat'],
-                "more_info": infections[classes[i]]['link'],
-                'show': infections[classes[i]]['no_treatment']
+                "treat": infection['treat'],
+                "more_info": infection['link'],
+                'show': infection['no_treatment']
             }
         new_data = {}
         for item in data:
